@@ -44,7 +44,7 @@ for (var i = 1; i <= images.length; i++) {
     arr.push({id: i, name: products[i], price: 100000 * i, image: images[i]});
 }
 
-app.get('/wait/:minID', function (req, res) {
+app.get('/product/:minID', function (req, res) {
     setTimeout(function () {
         var minID = parseInt(req.params.minID) * 5;
         var maxID = minID + 5;
@@ -55,7 +55,7 @@ app.get('/wait/:minID', function (req, res) {
     }, 3000);
 });
 
-app.get('/api/:minID', function (req, res) {
+app.get('/api/product/:minID', function (req, res) {
     var minID = parseInt(req.params.minID) * 5;
     var maxID = minID + 5;
     var result = arr.filter(function (e, i) {
@@ -82,7 +82,7 @@ for (var j = 1; j <= cates.length; j++) {
 }
 
 app.get('/api/cates', function (req, res) {
-    res.json(arrCate);
+    res.send(arrCate);
 });
 
 
