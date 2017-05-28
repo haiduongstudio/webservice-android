@@ -85,6 +85,10 @@ app.get('/api/cates', function (req, res) {
     res.send(arrCate);
 });
 
+app.get('/api/products', function (req, res) {
+    res.send(arr);
+});
+
 
 
 
