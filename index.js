@@ -38,10 +38,20 @@ var products = [
     "Hồng",
 ];
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 var arr = [];
 for (var i = 1; i <= images.length; i++) {
-    arr.push({id: i, name: products[i], price: 100000 * i, image: images[i], description: "Chưa có mô tả"});
+    arr.push({
+        id: i,
+        name: products[i],
+        price: 100000 * i,
+        image: images[i],
+        description: "Chưa có mô tả",
+        cateId: getRandomInt(1, products.length)
+    });
 }
 
 app.get('/product/:minID', function (req, res) {
