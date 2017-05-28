@@ -41,7 +41,7 @@ var products = [
 
 var arr = [];
 for (var i = 1; i <= images.length; i++) {
-    arr.push({id: i, name: products[i], price: 100000 * i, image: images[i]});
+    arr.push({id: i, name: products[i], price: 100000 * i, image: images[i], description: "Chưa có mô tả"});
 }
 
 app.get('/product/:minID', function (req, res) {
