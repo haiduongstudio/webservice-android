@@ -46,9 +46,9 @@ var arr = [];
 for (var i = 1; i <= images.length; i++) {
     arr.push({
         id: i,
-        name: products[i],
+        name: products[i-1],
         price: 100000 * i,
-        image: images[i],
+        image: images[i-1],
         description: "Chưa có mô tả",
         cateId: getRandomInt(1, products.length)
     });
@@ -78,16 +78,16 @@ app.get('/api/product/:minID', function (req, res) {
 // Return all cate
 var cates = [
     "Điện thoại",
-    "Máy tính",
+    "Máy tính"
 ];
-var cateImages=[
+var cateImages = [
     "http://www.freeiconspng.com/uploads/iphone-icon--mac-iconset--archigraphs-32.png",
-    "http://www.freeiconspng.com/uploads/laptop-icon-9.png",
+    "http://www.freeiconspng.com/uploads/laptop-icon-9.png"
 ];
 
 var arrCate = [];
 for (var j = 1; j <= cates.length; j++) {
-    arrCate.push({cateId: j, cateName: cates[j], cateImage: cateImages[j]});
+    arrCate.push({cateId: j, cateName: cates[j-1], cateImage: cateImages[j-1]});
 }
 
 app.get('/api/cates', function (req, res) {
