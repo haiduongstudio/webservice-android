@@ -73,7 +73,7 @@ var cates = [
     "Điều hoà",
     "Máy giặt",
     "Máy rửa bát",
-    "Phụ kiện"
+    "Phụ kiện",
 ];
 
 var arrCate = [];
@@ -82,7 +82,7 @@ for (var j = 1; j <= cates.length; j++) {
 }
 
 app.get('/api/cates', function (req, res) {
-    res.send(arrCate);
+    res.json(arrCate);
 });
 
 
