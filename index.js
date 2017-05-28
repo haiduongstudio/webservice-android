@@ -77,18 +77,17 @@ app.get('/api/product/:minID', function (req, res) {
 
 // Return all cate
 var cates = [
-    "Máy tính",
     "Điện thoại",
-    "Ti vi",
-    "Điều hoà",
-    "Máy giặt",
-    "Máy rửa bát",
-    "Phụ kiện",
+    "Máy tính",
+];
+var cateImages=[
+    "http://www.freeiconspng.com/uploads/iphone-icon--mac-iconset--archigraphs-32.png",
+    "http://www.freeiconspng.com/uploads/laptop-icon-9.png",
 ];
 
 var arrCate = [];
 for (var j = 1; j <= cates.length; j++) {
-    arrCate.push({cateId: j, cateName: cates[j], cateImage: images[j]});
+    arrCate.push({cateId: j, cateName: cates[j], cateImage: cateImages[j]});
 }
 
 app.get('/api/cates', function (req, res) {
