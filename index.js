@@ -65,6 +65,27 @@ app.get('/api/:minID', function (req, res) {
 });
 
 
+// Return all cate
+var cates= [
+    "Máy tính",
+    "Điện thoại",
+    "Ti vi",
+    "Điều hoà",
+    "Máy giặt",
+    "Máy rửa bát",
+    "Phụ kiện"
+];
+
+var arrCate = [];
+for (var i = 1; i <= cates.length; i++) {
+    arrCate.push({cateId: i, cateName: cates[i], cateImage: images[i]});
+}
+
+app.get('/api/cates', function (req, res) {
+    res.send(arrCate);
+});
+
+
 
 
 
