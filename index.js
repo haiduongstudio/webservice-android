@@ -1,8 +1,15 @@
 var express = require('express');
 var app = express();
+
 app.listen(process.env.PORT || 3000, function () {
     console.log('Server started');
 });
+
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
 
 var images = [
     "https://media.foody.vn/res/g17/169399/prof/s480x300/foody-mobile-lau-cua-khoi-jpg-205-636229387604727065.jpg",
@@ -46,9 +53,9 @@ var arr = [];
 for (var i = 1; i <= images.length; i++) {
     arr.push({
         id: i,
-        name: products[i-1],
+        name: products[i - 1],
         price: 100000 * i,
-        image: images[i-1],
+        image: images[i - 1],
         description: "Chưa có mô tả",
         cateId: getRandomInt(1, products.length)
     });
@@ -56,17 +63,17 @@ for (var i = 1; i <= images.length; i++) {
 
 app.get('/product/:minID', function (req, res) {
     setTimeout(function () {
-        var minID = parseInt(req.params.minID) * 5;
+        var minID = parseInt(req.params.minID - 1) * 5;
         var maxID = minID + 5;
         var result = arr.filter(function (e, i) {
             return (i >= minID) && (i <= maxID);
         });
         res.send(result);
-    }, 3000);
+    }, 2000);
 });
 
 app.get('/api/product/:minID', function (req, res) {
-    var minID = parseInt(req.params.minID) * 5;
+    var minID = parseInt(req.params.minID - 1) * 5;
     var maxID = minID + 5;
     var result = arr.filter(function (e, i) {
         return (i >= minID) && (i <= maxID);
@@ -87,7 +94,7 @@ var cateImages = [
 
 var arrCate = [];
 for (var j = 1; j <= cates.length; j++) {
-    arrCate.push({cateId: j, cateName: cates[j-1], cateImage: cateImages[j-1]});
+    arrCate.push({cateId: j, cateName: cates[j - 1], cateImage: cateImages[j - 1]});
 }
 
 app.get('/api/cates', function (req, res) {
