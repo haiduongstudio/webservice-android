@@ -42,7 +42,7 @@ var products = [
     "LG G4",
     "iPhone 6",
     "Samsung Galaxy Note 4",
-    "Samsung Galaxy S6 Edge"
+    "Samsung Galaxy S6 Edge",
     "BlackBerry Classic",
     "Lumia 950 XL",
     "Motorola Pure",
